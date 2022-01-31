@@ -1,8 +1,13 @@
 package com.mypetproject.petproject.models;
 
-import javax.persistence.*;
-import java.util.Set;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "records")
 public class Record {
@@ -13,60 +18,15 @@ public class Record {
     @Column(name = "record_title")
     private String recordTitle;
 
-    @Column
-    private String record;
+    @Column(name = "record_body")
+    private String recordBody;
 
-//    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//
-//    private Set<Tag> tags;
+    @OneToMany (fetch = FetchType.EAGER, mappedBy = "record")
+    private List<Tag> tag;
 
-    public Record() {
-    }
-
-    public Record(String recordTitle, String record) {
+    public Record(String recordTitle, String recordBody) {
         this.recordTitle = recordTitle;
-        this.record = record;
+        this.recordBody = recordBody;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRecordTitle() {
-        return recordTitle;
-    }
-
-    public void setRecordTitle(String recordTitle) {
-        this.recordTitle = recordTitle;
-    }
-
-    public String getRecord() {
-        return record;
-    }
-
-    public void setRecord(String record) {
-        this.record = record;
-    }
-
-//    public Set<Tag> getTags() {
-//        return tags;
-//    }
-//
-//    public void setTags(Set<Tag> tags) {
-//        this.tags = tags;
-//    }
-
-    @Override
-    public String toString() {
-        return "Record{" +
-                "id=" + id +
-                ", recordTitle='" + recordTitle + '\'' +
-                ", record='" + record + '\'' +
-//                ", tags=" + tags +
-                '}';
-    }
 }

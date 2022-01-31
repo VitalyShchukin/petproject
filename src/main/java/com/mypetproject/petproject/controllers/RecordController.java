@@ -1,6 +1,7 @@
 package com.mypetproject.petproject.controllers;
 
 import com.mypetproject.petproject.models.Record;
+import com.mypetproject.petproject.models.Tag;
 import com.mypetproject.petproject.repository.RecordRepository;
 import com.mypetproject.petproject.services.RecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,8 @@ public class RecordController {
 
     @Autowired
     private RecordRepository recordRepository;
-
+    @Autowired
+    private RecordService recordService;
 
     @GetMapping("/records")
     public String recordsList(Model model) {
@@ -40,6 +42,17 @@ public class RecordController {
         recordRepository.save(rec);
         return "redirect:/records";
     }
+
+//    @PostMapping("/record/add")
+//    public String recordAdd(@RequestParam String title,
+//                            @RequestParam String record,
+//                            @RequestParam String tag,
+//                            @RequestParam String record_id,
+//                            Model model){
+//        Record record=new Record();
+//        recordService.findTagAndSave();
+//        return "redirect:/records";
+//    }
 
     @PostMapping("/records/{id}/remove")
     public String recordDelete(@PathVariable(value = "id") long id, Model model) {

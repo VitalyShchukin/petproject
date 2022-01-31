@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 @Controller
 public class GeneralController {
 
@@ -18,3 +22,8 @@ public class GeneralController {
         return "about";
     }
 }
+
+//    public static void main(String[] args) {
+//
+//    }
+//}
