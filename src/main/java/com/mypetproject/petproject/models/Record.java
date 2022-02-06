@@ -1,12 +1,15 @@
 package com.mypetproject.petproject.models;
 
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 @Table(name = "records")
@@ -21,8 +24,8 @@ public class Record {
     @Column(name = "record_body")
     private String recordBody;
 
-    @OneToMany (fetch = FetchType.EAGER, mappedBy = "record")
-    private List<Tag> tag;
+    @OneToMany (cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "record", orphanRemoval = true)
+    private List<Tag> tags;
 
     public Record(String recordTitle, String recordBody) {
         this.recordTitle = recordTitle;

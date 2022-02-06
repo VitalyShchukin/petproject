@@ -4,26 +4,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 @Controller
-public class GeneralController {
+public class OtherController {
 
-
-    @GetMapping("/")
+    @GetMapping("/") //main page
     public String indexPage(Model model) {
         return "index";
     }
 
-    @GetMapping("/about")
+    @GetMapping("/about") //about project page
     public String about(Model model) {
         return "about";
     }
 }
-
-//    public static void main(String[] args) {
-//
-//    }
-//}

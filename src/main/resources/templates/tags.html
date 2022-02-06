@@ -17,16 +17,16 @@
         <table class="table table-striped table-sm" width="">
             <thead>
             <tr>
-                <th scope="col" width="" align="center">№ п/п</th>
+                <th scope="col" width="" align="center">ID в БД</th>
                 <th scope="col" width="" align="center">Тэг</th>
-                <th scope="col" width="" align="center">Номер связанной записи</th>
+                <th scope="col" width="" align="center">Имя связанной записи</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="element : ${tag}">
                 <td th:text="${element.id}"/>
-                <td th:text="${element.tag}"/>
-                <td th:text="${element.recordId}"/>
+                <td th:text="${element.tagBody}"/>
+                <td th:text="${element.record.recordTitle}"/>
             </tr>
             </tbody>
         </table>

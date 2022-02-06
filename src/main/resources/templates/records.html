@@ -19,6 +19,7 @@
             <tr>
                 <th scope="col" width="" align="center">ID в БД</th>
                 <th scope="col" width="" align="center">Название записи</th>
+                <th scope="col" width="" align="center">Текст записи</th>
                 <th scope="col" width="" align="center">Тэги из записи</th>
                 <th scope="col" width="" align="center"></th>
                 <th scope="col" width="" align="center"></th>
@@ -26,10 +27,11 @@
             </thead>
             <tbody>
             <tr th:each="el : ${rec}">
-                <td th:text="${el.id}"/>
-                <td th:text="${el.recordTitle}"/>
-                <td>Тэг123</td>
-                <td><button tipe="submit" class="btn btn-sm btn-outline-secondary">Посмотреть полный текст</button></td>
+                <td th:text="${el.id}" style="width:10%"/>
+                <td th:text="${el.recordTitle}" style="width:10%"/>
+                <td th:text="${el.recordBody}" style="width:50%"/>
+                <td th:text="${el.tags}"/>
+<!--                <td><button tipe="submit" class="btn btn-sm btn-outline-secondary">Посмотреть полный текст</button></td>-->
                 <td>
                     <form th:action= "'/records/'+${el.id}+'/remove'" method="post">
                     <button class="btn btn-sm btn-outline-secondary" tipe="submit">Удалить запись</button>
